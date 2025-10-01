@@ -4,20 +4,17 @@ import "./../styles/App.css";
 const App = () => {
   const [fields, setFields] = useState([]);
 
-  // Add new field
   const addField = () => {
-    const newField = { id: Date.now(), value: "" }; // unique id
+    const newField = { id: Date.now(), value: "" };
     setFields([...fields, newField]);
   };
 
-  // Update field value
   const updateField = (id, newValue) => {
     setFields(fields.map(field => 
       field.id === id ? { ...field, value: newValue } : field
     ));
   };
 
-  // Delete field
   const deleteField = (id) => {
     setFields(fields.filter(field => field.id !== id));
   };
@@ -25,7 +22,7 @@ const App = () => {
   return (
     <div>
       {/* Do not remove the main div */}
-      <button className="add" onClick={addField}>Add field</button>
+      <button className="add" onClick={addField}>Add Field</button>
 
       {fields.length === 0 ? (
         <p>No fields in the form</p>
